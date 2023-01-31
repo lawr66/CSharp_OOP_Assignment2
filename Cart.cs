@@ -25,31 +25,83 @@ public class Cart
             this.cart.Add(new CartItem(name,price,quantity));
     }
 
-    public void DeleteItem(int index)
+    public void DeleteItem()
     {
-            this.cart.RemoveAt(index);
-    }
-
-    public void UpdateItem(int index)
-    {
-        int q;
-       Console.WriteLine("Input the number with which you want to update the quantity of the item (write negative number to decrease).");
-       while(1>0)
-       {
-            q = int.Parse(Console.ReadLine());
-            if(this.cart[index].Quantity + q <0)
+        string itemName;
+        bool veryfier = false;
+        while(1>0)
+        {
+            Console.Write("Introduce the name of the item you want to delete. ");
+            itemName = Console.ReadLine();
+            for(int i = 0; i < this.cart.Count; i++)
+                {
+                    if(string.Equals(this.cart[i].Name, itemName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        this.cart.RemoveAt(i);
+                        veryfier = true;
+                    }
+                }
+            if(veryfier == true)
             {
-                Console.WriteLine("Quantity can't be negative, please try another value.");
-            }
-            else if(this.cart[index].Quantity + q == 0)
-            {
-                this.cart.RemoveAt(index);
+                Console.WriteLine("{0} removed succesfully.",itemName);
                 break;
             }
             else
             {
-               this.cart[index].Quantity = cart[index].Quantity + q;
-                break;
+                Console.WriteLine("Couldn't remove specified item ({0}), please check spelling and try again.",itemName);
+            }
+        }
+    }
+
+    public void UpdateItem()
+    {
+       string itemName;
+       int q; 
+       int index;
+       bool isNumber;
+
+       while(1>0)
+       {
+            index = -1;
+            Console.Write("Input the name of the item you want to update.");
+            itemName = Console.ReadLine();
+            Console.Write("Input the number with which you want to update the quantity of the item (write negative number to decrease).");
+            isNumber = int.TryParse(Console.ReadLine(), out q);
+            if(isNumber == true)
+            {
+                for(int i = 0; i < this.cart.Count; i++)
+                {
+                    if(string.Equals(this.cart[i].Name, itemName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                if(index != -1)
+                {
+                    if(this.cart[index].Quantity + q <0)
+                    {
+                        Console.WriteLine("Quantity can't be negative, please try another value.");
+                    }
+                    else if(this.cart[index].Quantity + q == 0)
+                    {
+                        this.cart.RemoveAt(index);
+                        break;
+                    }
+                    else
+                    {
+                    this.cart[index].Quantity = cart[index].Quantity + q;
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Item not found, couldn't update, please try again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entered value isn't a number, please try again.");
             }
        }
     }

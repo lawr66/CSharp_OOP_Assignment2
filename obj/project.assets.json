@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tibi\\Desktop\\OOP_CSharp_Assignment2\\OOP_CSharp_Assignment2.csproj",
+      "projectUniqueName": "F:\\GitHub\\CSharp_OOP_Assignment2\\OOP_CSharp_Assignment2.csproj",
       "projectName": "OOP_CSharp_Assignment2",
-      "projectPath": "C:\\Users\\Tibi\\Desktop\\OOP_CSharp_Assignment2\\OOP_CSharp_Assignment2.csproj",
+      "projectPath": "F:\\GitHub\\CSharp_OOP_Assignment2\\OOP_CSharp_Assignment2.csproj",
       "packagesPath": "C:\\Users\\Tibi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tibi\\Desktop\\OOP_CSharp_Assignment2\\obj\\",
+      "outputPath": "F:\\GitHub\\CSharp_OOP_Assignment2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tibi\\AppData\\Roaming\\NuGet\\NuGet.Config"
